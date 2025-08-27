@@ -8,5 +8,7 @@ namespace WindowsServiceMonitor.Ser.Infrastructure.Data
     {
         public AppDbContext() : base("DefaultConnection") { }
         public DbSet<Service> Services { get; set; }
+
+        public DbSet<Action> Action { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace WindowsServiceMonitor.Ser.Infrastructure.Repositories
         }
         public IEnumerable<Service> GetAllServices()
         {
-            return _context.Services.Where(p => p.Enabled.ToLower() == "true").OrderBy(p => p.Id).ToList();
+            return _context.Services.Where(p => p.Enabled.ToLower() == "yes").OrderBy(p => p.Id).ToList();
         }
     }
 }

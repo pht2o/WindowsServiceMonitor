@@ -54,10 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Interfaces\IAction.cs" />
     <Compile Include="Application\Interfaces\IService.cs" />
+    <Compile Include="Application\Services\ActionService.cs" />
     <Compile Include="Application\Services\Service.cs" />
+    <Compile Include="Domain\Entities\Action.cs" />
     <Compile Include="Domain\Entities\Service.cs" />
     <Compile Include="Infrastructure\Data\AppDbContext.cs" />
+    <Compile Include="Infrastructure\Repositories\ActionRepository.cs" />
     <Compile Include="Infrastructure\Repositories\ServiceRepository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

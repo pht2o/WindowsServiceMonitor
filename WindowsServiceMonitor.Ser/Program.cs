@@ -8,9 +8,11 @@ namespace WindowsServiceMonitor.Ser
     public class Program
     {
         private readonly IService _service;
+        private readonly IAction _action;
         public Program()
         {
             _service = new Service();
+            _action = new ActionService();
         }
         static void Main(string[] args)
         {
@@ -25,8 +27,11 @@ namespace WindowsServiceMonitor.Ser
             {
                 foreach (var service in listServices)
                 {
-                    Console.WriteLine($"Service ID: {service.Id}, Name: {service.Id}, Status: {service.Enabled}");
+                    Console.WriteLine($"Service ID: {service.Id}, Name: {service.Description}, Status: {service.Enabled}");
+
+                    _action.run(service.Id);
                 }
+
             }
             else
             {
