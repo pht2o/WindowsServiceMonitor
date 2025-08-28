@@ -21,7 +21,7 @@ namespace WindowsServiceMonitor.Ser.Infrastructure.Repositories
                 Register = DateTime.Now
 
             };
-            _context.Action.Add(Action);
+            _context.Actions.Add(Action);
             _context.SaveChanges();
         }
         public void RestartService(int serviceId)
@@ -34,7 +34,7 @@ namespace WindowsServiceMonitor.Ser.Infrastructure.Repositories
                 Register = DateTime.Now
 
             };
-            _context.Action.Add(Action);
+            _context.Actions.Add(Action);
             _context.SaveChanges();
         }
         public void RunService(int serviceId)
@@ -47,7 +47,7 @@ namespace WindowsServiceMonitor.Ser.Infrastructure.Repositories
                 Register = DateTime.Now
 
             };
-            _context.Action.Add(Action);
+            _context.Actions.Add(Action);
             _context.SaveChanges();
         }
     }

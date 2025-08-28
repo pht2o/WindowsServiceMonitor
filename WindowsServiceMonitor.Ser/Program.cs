@@ -1,18 +1,13 @@
-﻿using System;
-
-using WindowsServiceMonitor.Ser.Application.Interfaces;
-using WindowsServiceMonitor.Ser.Application.Services;
+﻿using WindowsServiceMonitor.Ser.Controllers;
 
 namespace WindowsServiceMonitor.Ser
 {
     public class Program
     {
-        private readonly IService _service;
-        private readonly IAction _action;
-        public Program()
+        private readonly AppController _app;
+        Program()
         {
-            _service = new Service();
-            _action = new ActionService();
+            _app = new AppController();
         }
         static void Main(string[] args)
         {
@@ -22,21 +17,7 @@ namespace WindowsServiceMonitor.Ser
 
         public void Run()
         {
-            var listServices = _service.GetAllServices();
-            if (listServices != null)
-            {
-                foreach (var service in listServices)
-                {
-                    Console.WriteLine($"Service ID: {service.Id}, Name: {service.Description}, Status: {service.Enabled}");
-
-                    _action.run(service.Id);
-                }
-
-            }
-            else
-            {
-                Console.WriteLine("No services found.");
-            }
+            _app.GetAllMonitoredActivetadServices();
         }
     }
 }
